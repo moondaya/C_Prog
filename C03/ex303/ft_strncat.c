@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
-
+//using arg for testing cause memory prob for comparison with real func. 
 int	cnt(char *str)
 {
 	unsigned int	cnt;
@@ -10,7 +10,7 @@ int	cnt(char *str)
 	while(*str)
 	{
 		cnt++;
-	str++;		
+		str++;		
 	}
 return (cnt);
 }
@@ -21,10 +21,8 @@ char *ft_strncat(char *dest, char *src, unsigned int nb)
 	unsigned int	i;
 	unsigned int	cntm;
 
-
 	i = 0;
 	cntm = cnt(dest);
-
 	if  (nb == 0)
 		return (0);
 	while (i < nb && src[i] != '\0')

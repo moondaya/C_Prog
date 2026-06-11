@@ -2,16 +2,16 @@
 #include <stdio.h>
 #include <string.h>
 
+// add func. for lenghe calculation. 
 int cnt(char *str)
 {
 	int cnt;
 
 	cnt = 0;
-
 	while (*str)
 	{
 		cnt++;
-	str++;
+		str++;
 	}
 return (cnt);
 }
@@ -28,12 +28,12 @@ char	*ft_strcat(char *dest, char *src)
 	{	
 		dest[leng + i] = src[i];
 		i++;
-//	printf(" \n check while L %d %s \n: ", i, dest);
+//	printf(" \n check while L %d %s \n: ", i, dest); 
 //	printf("\n check srci %c \n", src[i]); src[i] character %s does not work
 	}
 	dest[leng + i] = '\0';
 
-printf("\n check point: %s: ", dest);
+//printf("\n check point: %s: ", dest);
 return (dest);
 
 }
