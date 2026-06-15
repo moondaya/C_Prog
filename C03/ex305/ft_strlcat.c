@@ -10,7 +10,8 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int destlen;
 	unsigned int srclen;
 	int	i;
-// intializing the values are important as they are used in the loop and condition. if not initialized it will take garbage value and cause memory smash.
+// intializing the values are important as they are used in the loop and condition.
+// if not initialized it will take garbage value and cause memory smash.
 	i = 0;
 	destlen = 0;
 	srclen = 0;
@@ -19,16 +20,16 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 
 	while(src[srclen] != '\0')
 		srclen++;
-//size is total memory capacitu to be required not the No of char to be copied.  
+//size is total memory capacity to be required. NOT!!! the No of char to be copied.  
 	if (destlen >= size) // it means destlen does not have enough EMPTY space for src  
-		return (size + srclen); // this is not the velu required but aimed. if destlen is more than size 
-		// it means it does not have enough space to copy src. 
-		// therefore the total memory required will be size + srclen.
+		return (size + srclen); // this is not the value required (do not consider destlen) but aimed. 
+		//if destlen is more than size, it means it does not have enough space to copy src.will not work until destlen larger.
+		// therefore the total memory aimed is size + srclen.
 		//  if destlen is less than size it means it has enough space to copy src. 
 		// therefore the total memory required will be destlen + srclen.
-		// Result, it safetly that the data needs to be worked with not more than size+srclen. rest destlen 
-		// is out of the scope of the function. it is not safe to work with that.
-	while (src[i] != '\0'&& (destlen + i ) < (size - 1))
+		// Result, it safetly that the data needs to be worked with not more than size+srclen. 
+		// destlen is out of the scope of the function consideration. it is not safe to work with that.
+	while (src[i] != '\0'&& (destlen + i ) < (size - 1)) // last char for null char.  
 	{	
 		dest[destlen + i] = src[i];
 		i++;
@@ -39,7 +40,7 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 
 	return (destlen + srclen);
 }
-
+// Be carefull lesson learned below there. 
 int	main(int argc, char *argv[])
 {
 	unsigned int ;

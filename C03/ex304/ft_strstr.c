@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int	ft_comp(char *strc, char *key)
+int	ft_comp(char *strc, char *key) // aim whether whole consequent char of str matches with whole key.   
 {
 	unsigned int	i;
 	
@@ -23,7 +23,7 @@ char	*ft_strstr(char *str, char *to_find)
 		return(str);
 	while (*str != '\0')
 	{
-		if (*str == *to_find)
+		if (*str == *to_find) // aim to find first char of str that matches with first char of to_find. 
 		{
 			if (ft_comp(str, to_find) == 0)
 				return (str);

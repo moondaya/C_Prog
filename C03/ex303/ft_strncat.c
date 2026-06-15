@@ -40,7 +40,8 @@ int	main (int argc, char *argv[])
 	char *	replace;
 
 	n = 4;
-	replace = argv[1]; // this not prevent for memory problem. it only stores memory location not new memory. Therefore org func still wil lnot be the same
+	replace = argv[1]; // this not prevent for memory problem. it only stores memory location not new memory.
+	// Therefore org func still will not be the same
 	if (argc > 3)
 		return (0);
 
