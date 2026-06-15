@@ -1,6 +1,19 @@
 #include <unistd.h>
 #include <stdio.h>
 
+
+int ft_strlenalt(char *str)
+{
+	int cnta;
+	
+	cnta = 0;
+	while(str[cnta] != '\0')
+		cnta++;	
+return (cnta);
+}
+
+
+/*  above alternative count better method. 9 lines to 12 lines. 
 int	ft_strlen(char *str)
 {
 	int	cnt;
@@ -13,6 +26,7 @@ int	ft_strlen(char *str)
 	}
 return (cnt);
 }
+*/
 
 int	main(int argc, char *argv[])
 {

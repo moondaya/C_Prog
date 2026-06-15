@@ -21,6 +21,7 @@ void	ft_putnbr(int nb)
 	}
 	n = (nb % 10 ) + '0';
 	write(1,&n, 1);
+	// shorter way is write(1, (char[]){(nb % 10) + '0'}, 1); but NOT RECOMENDED for common approach. 
 }
 int main(void)
 {
@@ -34,7 +35,8 @@ return (0);
 
 
 
-/*
+/* there is problem in below way. input putnbr is int but the input in main below is  char. so conflict occurs.
+// need to change the type which is another ex subject. 
 int	main(int argc, char *argv[])
 {
 	if(argc != 2)
