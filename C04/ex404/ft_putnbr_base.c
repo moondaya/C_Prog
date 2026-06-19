@@ -84,6 +84,37 @@ char*	checkfunc(char *base)
 	}
 return (0);
 }
+
+
+void	ft_putnbr_basew(int nbrw, char* basew, int basecntw)
+{
+	if (nbrw >= basecntw)
+	{
+		ft_putnbr_basew((nbrw/basecntw), basew, basecntw);
+	}
+write(1, &basew[nbrw % basecntw], 1);
+//return;
+}
+
+void	ft_putnbr_base(int nbr, char *base)
+{
+	checkfunc(base);
+	int	lg;
+	long 	nbrl;
+	
+	lg = ftcnt(base);
+
+	nbrl = nbr;
+	if (nbrl < 0)
+	{
+		nbrl = -nbrl;
+		write(1, "-", 1);
+		//ftputchar("-"); do not use those terms as it is string output style
+	}
+	
+	ft_putnbr_basew(nbrl, base, lg);
+}
+
 	
 int ftaoi(char* str)
 {
@@ -99,32 +130,11 @@ return(nocvt);
 
 }
 
-void	ft_putnbr_base(int nbr, char *base)
-{
-	checkfunc(base);
-	int	lg;
-	long 	nbrl;
 
-	nbrl = nbr;
-	if (nbrl < 0)
-	{
-		nbrl = -nbrl;
-		write(1, "-", 1);
-		//ftputchar("-"); do not use those terms as it is string output style
-	}
-	
-	lg = ftcnt(base);
-	//printf(" \n nbr is %d \n", nbrl);
-	if ( nbrl >= lg)
-	{
-		ft_putnbr_base((nbrl/lg), base);
-	}
-	//printf("\n id char %d \n", nbr % lenghtbs);
-	//printf("\n letsee %d \n ",base[(nbr % lg)]); it does not work either as it is only integer not for charcter which might be included in base. 
-	//ftputchar(&base[(nbr % lg)]); this does not work as it is for string output
-	write(1, &base[(nbrl % lg)], 1); // best choice for the output. 
 
-}
+
+
+
 
 int	main(int argc, char *argv[])
 {
