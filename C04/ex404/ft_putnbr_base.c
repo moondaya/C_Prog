@@ -9,15 +9,7 @@ void	ftputchar(char* str)
 	str++;
 	}
 }
-/*
-void fswap(char* a1, char* a2)
-{
-	char	temp = *a1;
-	
-	*a1 = *a2;
-	*a2 = temp;
-}
-*/
+
 int ftcnt(char *basecn)
 {
 	int	cnt;
@@ -28,33 +20,8 @@ int ftcnt(char *basecn)
 
 	return (cnt);
 }
-/*
 
-char *ftsort(char *bases)
-{
-	int	i;
-	int	j;
-	int	len;
-
-	len = ftcnt(bases);
-	i = 0;
-	while ( i < len -1)
-	{
-		j = 0;
-		while (j < len - 1 - i)
-		{
-			if(bases[j] < bases [j + 1])
-			{
-			fswap(&bases[i], &bases[i + 1]);
-			}
-		j++;
-		}
-	i++;
-	}
-return (bases);
-}
-*/
-char*	checkfunc(char *base)
+int	checkfunc(char *base)
 {
 	int	i;
 	int 	j;
@@ -82,7 +49,7 @@ char*	checkfunc(char *base)
 		}
 	i++;
 	}
-return (0);
+return (1);
 }
 
 
@@ -98,12 +65,13 @@ write(1, &basew[nbrw % basecntw], 1);
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	checkfunc(base);
+	//checkfunc(base);
 	int	lg;
 	long 	nbrl;
 	
+	if (checkfunc(base) == 0)
+		return;
 	lg = ftcnt(base);
-
 	nbrl = nbr;
 	if (nbrl < 0)
 	{
@@ -115,7 +83,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	ft_putnbr_basew(nbrl, base, lg);
 }
 
-	
+//below function is for argv argc function usage.	
 int ftaoi(char* str)
 {
 	int	nocvt;
