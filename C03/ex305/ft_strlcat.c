@@ -3,7 +3,7 @@
 // understnad the dest, src and size
 // size" total memory capacity requried not only copied. at the end, size of memory..
 // dest is the string to be appended in the scope of total memory size.
-// src is the string to be appended in the scope of total memory size.
+// src is the string that will add to dest in the scope of total memory size.
 
 unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
@@ -15,15 +15,15 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 	i = 0;
 	destlen = 0;
 	srclen = 0;
-	while(dest[destlen] != '\0' && destlen < size)
+	while(dest[destlen] != '\0' && destlen < size) // that part crops the destlen if it is larger than size
 		destlen++;
 
 	while(src[srclen] != '\0')
 		srclen++;
 //size is total memory capacity to be required. NOT!!! the No of char to be copied.  
-	if (destlen >= size) // it means destlen does not have enough EMPTY space for src  
-		return (size + srclen); // this is not the value required (do not consider destlen) but aimed. 
-		//if destlen is more than size, it means it does not have enough space to copy src.will not work until destlen larger.
+	if (destlen >= size) // it means destlen does not have enough EMPTY space for src  this part is to understand destlen boudariy is hit to size or not! therefore = sign there
+		return (size + srclen); // this is not the value required (do not consider destlen) but minimum required size not a solution. 
+		//if destlen is more than size, it means it does not have enough space to copy src.will not work until size is larger than destlen or else.
 		// therefore the total memory aimed is size + srclen.
 		//  if destlen is less than size it means it has enough space to copy src. 
 		// therefore the total memory required will be destlen + srclen.
