@@ -3,28 +3,23 @@
 // remember write() can not display int direcly.
 int	ft_iterative_factorial(int nb)
 {
-	int	i;
 	int	fac;
-	int*	wr;
-
-	i = 1;
-	fac = nb;
 	
-	if (nb == 0)
+	fac = 1;
+	if (nb == 0 || nb == 1)
 		return(1);
 	if(nb < 0)
 		return(0);
 	
 
-	while(nb - i > 1)
+	while(nb > 1)
 	{
-		fac = fac * (nb - i);
-		i++;
-	//printf("\n fac is inloop %d \n ", fac);
+		fac = fac * nb;
+		nb--;
 	}
-	wr = &fac;
-	write(1, wr, 4); //  remember write() can not write int directly
-	printf("\n here is %d \n", fac);
+	
+	//write(1, &fac , 4); //  remember write() can not write int directly
+	//printf("\n here is %d \n", fac);
 return(fac);
 }
 
@@ -32,32 +27,61 @@ int	fatoi(char* str)
 {
 
 	int	nba;
+	int	sg;
 	
-	nba = 0;
-	while(*str != '\0')
+	sg = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-	nba = (nba * 10) + (*str - '0');
+		if(*str == '-')
+		{ 
+			sg = -sg;
+		}
 	str++;
 	}
-return(nba);
+	nba =  0;
+	while(*str != '\0' && *str <= '9' && *str >= '0')
+	{
+		nba = (nba * 10) + (*str - '0');
+		str++;
+	}
+return(nba * sg);
+}
+void	fputnbr(int n)
+{
+	long nb;
+	char c;
+
+	nb = n;
+	if (nb < 0)
+	{
+		write(1,"-",1);
+		nb = -nb;
+	}
+
+	if (nb >= 10)
+	{
+		fputnbr(nb / 10);
+	}
+	c = (nb % 10) + '0';
+	write(1, &c, 1);
 }
 
 int	main(int argc, char* argv[])
 {
 	int	a;
-
+	int 	b;
+	if (argc != 2)
+	{
+		write(1, "Error: Please provide one number.\n", 34);
+	return(0);
+	}
+	write(1, "factorial is: ", 14); 
 	a = fatoi(argv[1]); 
-	ft_iterative_factorial(a);
-	//ft_iterative_factorial(a);
+	b = ft_iterative_factorial(a);
+	//write(1, "\n", 1);
+	fputnbr(b);
+	printf("\n check: %d \n", b);
 return(0);
 }
-/*
-int	main(void)
-{
-	int	a;
-
-	a = 6;
-	ft_iterative_factorial(a);
-return(0);
-}
-*/
