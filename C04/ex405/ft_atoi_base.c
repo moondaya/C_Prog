@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
-
+// counting lenght of char.
 int	cnt(char *str)
 {
 	int	cnt;
@@ -10,7 +10,7 @@ int	cnt(char *str)
 		cnt++;
 return(cnt);
 }
-
+// displaying string. with new line
 void	fputstr(char *str)
 {	
 	int	wr;
@@ -22,7 +22,7 @@ void	fputstr(char *str)
 		wr++;
 	}
 }
-
+// checking base function according to given conditions.
 int	chckfunc(char *base)
 {
 	int	i;
@@ -55,7 +55,7 @@ int	chckfunc(char *base)
 	}
 	return(1);
 }
-
+//recursive function
 void 	putbase(int nom, char* base, int basesize)
 {
 	long	nomb;
@@ -73,12 +73,12 @@ write(1, &base[nomb % basesize], 1);
 
 }
 
-
+//converting sting to integer. 
 int	ft_atoi_base(char *str, char* base)
 {
-	int	lg;
-	int	sg;
-	int	nom;
+	int	lg;  // lenghe of base
+	int	sg;  // sign 
+	int	nom; // final int conversion variable.
 
 	lg = 0;
 	sg = 1;
@@ -112,7 +112,7 @@ return (0);
 
 int	main(int argc, char* argv[])
 {
-	ft_atoi_base(argv[1], argv [2]);
+	ft_atoi_base(argv[1], argv[2]);
 
 return(0);
 }
