@@ -11,7 +11,11 @@ int	ft_atoi(char *str)
 	nb = 0;
 	if (*str == '\0')
 		return (0);
-	while (*str >= 9 && *str == 13 || *str == 32)
+// isspace characters are ''space, \t horz. tab, \n newline,
+// \f feed, \r carriage return. \v vertical tab
+// isspace works, if char is white space char, return non-zero
+// if char is non white space func returns zero
+	while (*str >= 9 && *str <= 13 || *str == 32)
 		str++;
 	while(*str == '-' || *str == '+')
 	{
