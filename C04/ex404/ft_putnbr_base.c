@@ -52,7 +52,8 @@ int	checkfunc(char *base)
 return (1);
 }
 
-
+//nbrw number input
+//basecntw lenght of base
 void	ft_putnbr_basew(int nbrw, char* basew, int basecntw)
 {
 	if (nbrw >= basecntw)
@@ -63,6 +64,8 @@ write(1, &basew[nbrw % basecntw], 1);
 //return;
 }
 
+//nbr type changed to long considering the memory.
+//lg length of base.
 void	ft_putnbr_base(int nbr, char *base)
 {
 	//checkfunc(base);
@@ -83,7 +86,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	ft_putnbr_basew(nbrl, base, lg);
 }
 
-//below function is for argv argc function usage.	
+//below function is for argv argc function usage.
+//notcvt is convert the sting input to integer.
+//not an obligotary input number can be written in the main functions
 int ftaoi(char* str)
 {
 	int	nocvt;
@@ -97,11 +102,6 @@ int ftaoi(char* str)
 return(nocvt);
 
 }
-
-
-
-
-
 
 
 int	main(int argc, char *argv[])
