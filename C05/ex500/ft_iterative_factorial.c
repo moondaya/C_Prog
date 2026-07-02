@@ -22,7 +22,7 @@ int	ft_iterative_factorial(int nb)
 	//printf("\n here is %d \n", fac);
 return(fac);
 }
-
+// not necessary function just for argumentative usage required. char input to convert int.
 int	fatoi(char* str)
 {
 
@@ -78,9 +78,9 @@ int	main(int argc, char* argv[])
 	return(0);
 	}
 	write(1, "factorial is: ", 14); 
-	a = fatoi(argv[1]); 
+	a = fatoi(argv[1]); // convert to string to integer
 	b = ft_iterative_factorial(a);
-	//write(1, "\n", 1);
+	//write(1, "\n", 1) can not display integer therefore fputnbr is required to display instead of printf
 	fputnbr(b);
 	printf("\n check: %d \n", b);
 return(0);
