@@ -2,10 +2,8 @@
 #include <stdio.h>
 int	ft_recursive_factorial(int nb)
 {
-	int	fac;
 	int	i;
 
-	fac = nb;
 	if( nb < 0) 
 		return(0);
 	if(nb == 0 || nb == 1)
@@ -13,7 +11,7 @@ int	ft_recursive_factorial(int nb)
 
 return(nb * ft_recursive_factorial((nb - 1)));
 }
-
+// required to screen entry input. not obligation
 int fatio(char* str)
 {
 	int	sg;
@@ -38,7 +36,7 @@ int fatio(char* str)
 
 return(sg * c);
 }
-
+//return function is integer and can be written by write func . therefore fputnbr are used. 
 void	fputnbr(int nb)
 {
 	char	s;
